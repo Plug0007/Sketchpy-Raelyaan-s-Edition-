@@ -14,6 +14,8 @@ Sketchpy (Raelyaan’s Edition) is a customized Python library for creating sket
 
 1. [Introduction](#introduction)  
 2. [Installation](#installation)  
+   - [Git Clone Installation](#git-clone-installation)  
+   - [PyPI Installation (Hypothetical)](#pypi-installation-hypothetical)  
 3. [Usage](#usage)  
 4. [Credits and Thanks](#credits-and-thanks)  
 5. [License (MIT)](#license-mit)
@@ -28,34 +30,37 @@ Sketchpy (Raelyaan’s Edition) allows users to convert images into line art or 
 
 ## Installation
 
-You can install Sketchpy (Raelyaan’s Edition) in one of the following ways:
+### Git Clone Installation
 
-### From Source
-1. Clone or download this repository.  
-2. Open a terminal/command prompt in the project directory.  
-3. Run:  
+If you want to install the library directly from this repository:
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/<your-username>/sketchpy-raelyaan.git
+
+# 2. Change directory to the cloned folder
+cd sketchpy-raelyaan
+
+# 3. Install the package
 pip install .
+(Replace <your-username> with the actual GitHub username or the URL of the repository if it’s different.)
 
-shell
+PyPI Installation (Hypothetical)
+If (or when) this project is published to PyPI, you can install it using:
+
+bash
 Copy
 Edit
-
-### (Hypothetical) PyPI Installation
 pip install sketchpy-raelyaan
+(Replace sketchpy-raelyaan with the actual package name if it differs.)
+
+Usage
+A quick example:
 
 python
 Copy
 Edit
-*(Replace `sketchpy-raelyaan` with the actual name if you publish under a different package title.)*
-
----
-
-## Usage
-
-A quick example:
-
-```python
-from sketchpy import canvas
+from sketchpy3 import canvas
 
 # Trace from an image
 obj = canvas.trace_from_image(r"path_to_image.jpg")
@@ -77,6 +82,9 @@ Overseeing ongoing updates, documentation, and support for Sketchpy (Raelyaan’
 License (MIT)
 Below is the full text of the original MIT License, which applies to this project:
 
+sql
+Copy
+Edit
 MIT License
 
 Copyright (c) 2022 Sriram
