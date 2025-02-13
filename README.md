@@ -32,8 +32,6 @@ Sketchpy (Raelyaan’s Edition) allows users to convert images into line art or 
 
 ### Git Clone Installation
 
-If you want to install the library directly from this repository:
-
 ```bash
 # 1. Clone the repository
 git clone https://github.com/Plug0007/Sketchpy-Raelyaan-s-Edition-.git
@@ -43,19 +41,25 @@ cd Sketchpy-Raelyaan-s-Edition-
 
 # 3. Install the package
 pip install .
+```
 
-PyPI Installation (Hypothetical)
-If (or when) this project is published to PyPI, you can install it using:
+*(Replace `<your-username>` with your actual GitHub username or the URL of the repository if it’s different.)*
 
+### PyPI Installation (Hypothetical)
 
-pip install sketchpy
+```bash
+pip install sketchpy-raelyaan
+```
 
-Usage
+*(Replace `sketchpy-raelyaan` with the actual package name if it differs.)*
+
+---
+
+## Usage
+
 A quick example:
 
-python
-Copy
-Edit
+```python
 from sketchpy3 import canvas
 
 # Trace from an image
@@ -63,24 +67,30 @@ obj = canvas.trace_from_image(r"path_to_image.jpg")
 
 # Draw the sketch
 obj.draw()
+```
+
 This will open a turtle graphics window and trace the image line by line.
 
-Credits and Thanks
-Original Author: Mr Mystery (sriramanand23@gmail.com)
-Many thanks to Mr Mystery for creating the initial Sketchpy library and sharing it under the MIT License.
+---
 
-Custom Edition: Raelyaan
-Responsible for enhancements, performance tweaks, and additional features in this edition.
+## Credits and Thanks
 
-Maintaining Author: Aadil Asif Badhra (aadilbadhra@gmail.com)
-Overseeing ongoing updates, documentation, and support for Sketchpy (Raelyaan’s Edition).
+- **Original Author:** Mr Mystery (sriramanand23@gmail.com)  
+  Many thanks to Mr Mystery for creating the initial Sketchpy library and sharing it under the MIT License.
 
-License (MIT)
+- **Custom Edition:** Raelyaan  
+  Responsible for enhancements, performance tweaks, and additional features in this edition.
+
+- **Maintaining Author:** Aadil Asif Badhra (aadilbadhra@gmail.com)  
+  Overseeing ongoing updates, documentation, and support for Sketchpy (Raelyaan’s Edition).
+
+---
+
+## License (MIT)
+
 Below is the full text of the original MIT License, which applies to this project:
 
-sql
-Copy
-Edit
+```
 MIT License
 
 Copyright (c) 2022 Sriram
@@ -102,3 +112,4 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+```
