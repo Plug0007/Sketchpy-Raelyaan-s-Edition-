@@ -36,23 +36,19 @@ If you want to install the library directly from this repository:
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/<your-username>/sketchpy-raelyaan.git
+git clone https://github.com/Plug0007/Sketchpy-Raelyaan-s-Edition-.git
 
 # 2. Change directory to the cloned folder
 cd sketchpy-raelyaan
 
 # 3. Install the package
 pip install .
-(Replace <your-username> with the actual GitHub username or the URL of the repository if it’s different.)
 
 PyPI Installation (Hypothetical)
 If (or when) this project is published to PyPI, you can install it using:
 
-bash
-Copy
-Edit
-pip install sketchpy-raelyaan
-(Replace sketchpy-raelyaan with the actual package name if it differs.)
+
+pip install sketchpy
 
 Usage
 A quick example:
