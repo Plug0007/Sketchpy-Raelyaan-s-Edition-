@@ -64,8 +64,8 @@ obj = canvas.trace_from_image(r"path_to_image.jpg")
 obj.draw()
 This will open a turtle graphics window and trace the image line by line.
 
-Credits and Thanks
-Original Author: Mr Mystery (sriramanand23@gmail.com)
+##Credits and Thanks
+```Original Author: Mr Mystery (sriramanand23@gmail.com)
 Many thanks to Mr Mystery for creating the initial Sketchpy library and sharing it under the MIT License.
 
 Custom Edition: Raelyaan
@@ -98,8 +98,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-
-
-
-
