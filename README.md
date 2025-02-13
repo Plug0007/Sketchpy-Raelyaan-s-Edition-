@@ -43,15 +43,14 @@ cd Sketchpy-Raelyaan-s-Edition-
 pip install .
 ```
 
-*(Replace `<your-username>` with your actual GitHub username or the URL of the repository if it’s different.)*
+
 
 ### PyPI Installation (Hypothetical)
 
 ```bash
-pip install sketchpy-raelyaan
+pip install sketchpy
 ```
-
-*(Replace `sketchpy-raelyaan` with the actual package name if it differs.)*
+*
 
 ---
 
@@ -60,7 +59,7 @@ pip install sketchpy-raelyaan
 A quick example:
 
 ```python
-from sketchpy3 import canvas
+from sketchpy import canvas
 
 # Trace from an image
 obj = canvas.trace_from_image(r"path_to_image.jpg")
