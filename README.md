@@ -39,7 +39,7 @@ If you want to install the library directly from this repository:
 git clone https://github.com/Plug0007/Sketchpy-Raelyaan-s-Edition-.git
 
 # 2. Change directory to the cloned folder
-cd sketchpy-raelyaan
+cd Sketchpy-Raelyaan-s-Edition-
 
 # 3. Install the package
 pip install .
