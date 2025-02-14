@@ -67,6 +67,16 @@ obj = canvas.trace_from_image(r"path_to_image.jpg")
 # Draw the sketch
 obj.draw()
 ```
+Drawing From SVG file
+You can sketch image uinsg the class color_sketch_from_svg, which takes the inpu in svg formate and then sketches it. Example Code:
+```bash
+
+    from sketchpy import canvas
+    if __name__ == "__main__":
+        obj = canvas.color_sketch_from_svg("Image Path")
+        obj.draw()
+
+```
 
 This will open a turtle graphics window and trace the image line by line.
 
