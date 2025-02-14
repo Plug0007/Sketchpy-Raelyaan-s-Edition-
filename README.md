@@ -59,6 +59,14 @@ obj = canvas.trace_from_image(r"path_to_image.jpg")
 obj.draw()
 ```
 
+### OUTPUT
+<div align = "center">
+   <img src = "https://github.com/Plug0007/Sketchpy-Raelyaan-s-Edition-/blob/main/images/gif/3.gif">
+</div>
+
+
+
+
 ## Drawing from an SVG File
 
 **Sketch directly from an SVG file (ensure your SVG meets the required format):**
