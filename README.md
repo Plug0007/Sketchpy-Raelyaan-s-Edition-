@@ -45,6 +45,12 @@ Sketchpy (Raelyaan’s Edition) simplifies programmatic drawing by converting im
 
 
    ```
+### Example vedio of Installation
+<div align = "center">
+   <img src = "https://github.com/Plug0007/Sketchpy-Raelyaan-s-Edition-/blob/main/images/gif/insup4568.gif">
+</div>
+
+
 
 # Usage
 
@@ -139,6 +145,12 @@ pip uninstall sketchpy
    rm -rf /path/to/Sketchpy-Raelyaan-s-Edition-
    ```
    **These steps ensure that both the package and its source directory are removed from your system.**
+
+  ### Example vedio of Uninstallation
+<div align = "center">
+   <img src = "https://github.com/Plug0007/Sketchpy-Raelyaan-s-Edition-/blob/main/images/gif/delup4567.gif">
+</div>
+
 
 # Credits and Thanks
 **Original Author: Mr Mystery (sriramanand23@gmail.com)
