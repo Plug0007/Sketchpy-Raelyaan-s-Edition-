@@ -6,17 +6,20 @@
 
 ## Table of Contents
 
-1. [Introduction](#introduction)  
+1. [Introduction](#introduction) 
 2. [Installation](#installation)  
    - [Git Clone Installation](#git-clone-installation)    
 3. [Usage](#usage)  
    - [Tracing from an Image](#tracing-from-an-image)  
    - [Drawing from an SVG File](#drawing-from-an-svg-file)   
-   - [Sketching from a .npy File](#sketching-from-a-npy-file)  
-   - [Library Examples](#library-examples)  
-4. [Uninstallation](#uninstallation)  
-5. [Credits and Thanks](#credits-and-thanks)  
-6. [License (MIT)](#license-mit)
+   - [Sketching from a .npy File](#sketching-from-a-npy-file)
+   - [ASCII Art from an Image](#ASCII_ART)  
+   - [Library Examples](#library-examples)
+4.[Version](#version)
+  -[version 0.3.3](#version_0.3.3)  
+5. [Uninstallation](#uninstallation)  
+6. [Credits and Thanks](#credits-and-thanks)  
+7. [License (MIT)](#license-mit)
 
 ---
 
@@ -98,6 +101,45 @@ obj.draw(file='data.npy')
 
 ```
 
+
+# ASCII_ART
+**Perameter:**
+```perameter
+image_path:
+The file path to the source image (e.g., "your_image.jpg").
+
+ascii_width:
+The number of characters per line in the generated ASCII art (controls detail).
+
+font_size:
+The size of the font used for rendering ASCII art in the Turtle window.
+
+verbose:
+A boolean flag that, when set to True, prints version details and an ASCII art header at startup.
+```
+**Code:**
+```python
+from my_sketch import MySketch
+
+# Initialize MySketch with your image and desired settings.
+# Set verbose=True to display version details and an ASCII art header.
+sketch = MySketch(image_path="your_image.jpg", ascii_width=100, font_size=16, verbose=True)
+
+# Display colored ASCII art in a Turtle window.
+sketch.draw_color_ascii_turtle()
+
+# Optionally, you can generate a sketch using Sketchpy's built-in functionality:
+# sketch.draw()
+```
+### OUTPUT
+<div align = "center">
+   <img src = "https://github.com/Plug0007/Sketchpy-Raelyaan-s-Edition-/blob/main/images/gif/apjup4569.gif">
+</div>
+
+
+
+
+
 ## Library Examples
 
 **Sketch famous personalities directly using pre-built library functions:**
@@ -174,6 +216,53 @@ pip uninstall sketchpy
 <div align = "center">
    <img src = "https://github.com/Plug0007/Sketchpy-Raelyaan-s-Edition-/blob/main/images/gif/delup4567.gif">
 </div>
+
+# version
+
+### version_0.3.3
+
+# MySketch Library
+
+**Version: 0.3.3**  
+*Creator: Raelyaan*
+
+## Overview
+
+MySketch converts images into colored ASCII art and sketches using Turtle graphics and Sketchpy. In this version, we've added enhanced colored ASCII rendering and Sketchpy integration.
+
+## Key Parameters
+
+- **`image_path`**:  
+  The file path to the source image (e.g., `"your_image.jpg"`).
+
+- **`ascii_width`**:  
+  Number of characters per line in the ASCII art (controls detail).
+
+- **`font_size`**:  
+  The font size used in the Turtle window for rendering the art.
+
+- **`verbose`**:  
+  If set to `True`, prints version details and an ASCII art header at startup.
+
+## New in Version 0.3.3
+
+- **Sketchpy Integration:**  
+  Generate a sketch of the image using Sketchpy with the `draw()` method.
+
+- **Colored ASCII Art:**  
+  Each ASCII character is rendered in a color sampled from the original image.
+
+- **Enhanced Clarity Controls:**  
+  Adjust `ascii_width` and `font_size` to improve output quality.
+
+## Acknowledgments
+
+- Built on top of [Sketchpy](https://github.com/Plug0007/Sketchpy-Raelyaan-s-Edition-).
+- Special thanks to the developers of OpenCV and the Python Turtle graphics module.
+
+Enjoy creating beautiful ASCII art!
+
+
 
 
 # Credits and Thanks
