@@ -1,44 +1,78 @@
-from setuptools import setup, find_packages,  Extension
+from setuptools import setup, find_packages, Extension
 import codecs
 import os
 
-
-
-
-VERSION = '0.3.2'
+VERSION = '0.3.3'  # Bump version to indicate new features
 DESCRIPTION = 'sketchpy'
 LONG_DESCRIPTION = """ 
-Sketchpy (Raelyaan’s Edition)
+Sketchpy (Raelyaan’s Edition) – Version 0.3.3
 
 Sketchpy (Raelyaan’s Edition) is a customized Python library for creating sketches and drawings programmatically. Inspired by the original Sketchpy project, this edition introduces enhancements, optimizations, and personal touches by Raelyaan. With Sketchpy, you can transform images into line art, silhouettes, or pencil-style drawings—all through the convenience of Python’s turtle graphics module.
 
-Overview: This library provides an intuitive API that allows you to generate a variety of sketch effects with minimal code. By leveraging the turtle module, Sketchpy (Raelyaan’s Edition) opens a window where your drawings come to life, stroke by stroke. Whether you’re an experienced Python developer or a newcomer curious about graphical programming, Sketchpy offers a fun, interactive way to explore creative coding.
+Overview
+This library provides an intuitive API that allows you to generate a variety of sketch effects with minimal code. By leveraging the turtle module, Sketchpy (Raelyaan’s Edition) opens a window where your drawings come to life, stroke by stroke. Whether you’re an experienced Python developer or a newcomer curious about graphical programming, Sketchpy offers a fun, interactive way to explore creative coding.
 
-Key Features:
+Key Features
+Straightforward Setup
+Installation is quick, and getting started is as simple as importing the library and calling a few functions.
 
-Straightforward Setup: Installation is quick, and getting started is as simple as importing the library and calling a few functions.
-Image Tracing: Convert your favorite photos into line drawings or silhouettes by adjusting threshold and resolution settings.
-Turtle Graphics: Watch each stroke appear in real time, allowing for an engaging and visually appealing experience.
-Extensible Codebase: Thanks to Python’s flexibility, you can integrate Sketchpy’s drawing capabilities into larger applications or modify it to suit your needs.
-Raelyaan’s Enhancements: Additional improvements in stability, performance, and user-friendliness ensure a smoother experience for all users.
-Installation: Use pip to install Sketchpy (Raelyaan’s Edition). If you plan to publish this on PyPI, the command might look like: pip install sketchpy-raelyaan Otherwise, if you’re installing locally or from a repository, make sure to include any dependencies in your environment, such as OpenCV (for advanced image processing) or Tkinter (for the turtle module, if needed on certain operating systems).
+Image Tracing
+Convert your favorite photos into line drawings or silhouettes by adjusting threshold and resolution settings.
 
-Usage Example:
+Turtle Graphics
+Watch each stroke appear in real time, allowing for an engaging and visually appealing experience.
 
-Import the library: from sketchpy3 import canvas
-Create a tracing object from an image: obj = canvas.trace_from_image("path_to_your_image.jpg")
-Draw the sketch: obj.draw() These steps will open a new window where turtle graphics render your image as a line drawing.
-Community and Contributions: Sketchpy (Raelyaan’s Edition) is distributed under the permissive MIT License, allowing anyone to use, modify, and redistribute the code. Community contributions are encouraged—whether through bug reports, feature requests, or pull requests. If you find a way to improve performance or add a new feature, feel free to share your work.
+Extensible Codebase
+Thanks to Python’s flexibility, you can integrate Sketchpy’s drawing capabilities into larger applications or modify it to suit your needs.
 
-Credits:
+Raelyaan’s Enhancements
+Additional improvements in stability, performance, and user-friendliness ensure a smoother experience for all users.
 
+Version 0.3.3
+Owned by Raelyaan
+This latest release reaffirms Raelyaan’s ongoing development and stewardship of the project.
+Advanced Upscaling Feature
+Introduces the ability to upscale generated sketches or images (optional) using advanced techniques like OpenCV, Pillow resampling, or Real-ESRGAN (for AI-based super-resolution).
+Further Optimizations
+Additional refinements in performance and ease-of-use, continuing to build on the enhancements made in previous versions.
+Installation
+Use pip to install Sketchpy (Raelyaan’s Edition). If you plan to publish this on PyPI, the command might look like:
+
+nginx
+Copy
+Edit
+pip install sketchpy-raelyaan
+Otherwise, if you’re installing locally or from a repository, make sure to include any dependencies in your environment, such as OpenCV (for advanced image processing) or Tkinter (for the turtle module, if needed on certain operating systems).
+
+Usage Example
+python
+Copy
+Edit
+from sketchpy3 import canvas
+
+# Create a tracing object from an image
+obj = canvas.trace_from_image("path_to_your_image.jpg")
+
+# Draw the sketch
+obj.draw()
+These steps will open a new window where turtle graphics render your image as a line drawing.
+
+Community and Contributions
+Sketchpy (Raelyaan’s Edition) is distributed under the permissive MIT License, allowing anyone to use, modify, and redistribute the code. Community contributions are encouraged—whether through bug reports, feature requests, or pull requests. If you find a way to improve performance or add a new feature, feel free to share your work.
+
+Credits
 Original Sketchpy Authors: Provided the foundation for this library.
-Raelyaan: Enhanced, maintained, and refined this custom edition.
+Raelyaan: Enhanced, maintained, and refined this custom edition (including ownership of Version 0.3.3).
 Open-Source Community: Continues to support and contribute to the library’s growth.
-License (MIT): This project is released under the MIT License, which allows free usage, modification, and distribution of the software. Users must retain the original copyright and license notice in all copies or significant portions of the software.
+License (MIT)
+This project is released under the MIT License, which allows free usage, modification, and distribution of the software. Users must retain the original copyright and license notice in all copies or significant portions of the software.
 
-Conclusion: Sketchpy (Raelyaan’s Edition) offers a playful yet powerful toolkit for anyone interested in creating programmatic art. By merging the simplicity of Python with the dynamism of turtle graphics, it delivers an accessible entry point into both coding and digital illustration. Feel free to experiment, customize, and share your creations, all while crediting the community that made it possible. Happy sketching!
+Conclusion
+Sketchpy (Raelyaan’s Edition) offers a playful yet powerful toolkit for anyone interested in creating programmatic art. By merging the simplicity of Python with the dynamism of turtle graphics, it delivers an accessible entry point into both coding and digital illustration. Version 0.3.3 is owned by Raelyaan and includes new advanced upscaling features, further performance optimizations, and user-friendly improvements. Feel free to experiment, customize, and share your creations, all while crediting the community that made it possible.
+
+Happy sketching!
 """
+
 # Setting up
 setup(
     name="sketchpy",
@@ -50,7 +84,7 @@ setup(
     description=DESCRIPTION,
     long_description_content_type="text/markdown",
     long_description=LONG_DESCRIPTION,
-    packages=find_packages(),
+    packages=find_packages(),  # Finds 'sketchpy' and sub-packages automatically
     package_data={'': ['files/*']},
     include_package_data=True,
     install_requires=[
@@ -66,6 +100,18 @@ setup(
         'torch',
         'numpy'
     ],
+    extras_require={
+        # If you want to optionally install Real-ESRGAN for AI super-resolution
+        'realesrgan': ['realesrgan']
+    },
+    entry_points={
+        # This adds a new console script for advanced upscaling
+        "console_scripts": [
+            # syntax: script_name = package.module:function
+            # Make sure advanced_upscale.py has a 'main' function
+            "sketchpy-upscale-advanced=sketchpy.upscale_advanced.advanced_upscale:main"
+        ]
+    },
     keywords=[
         'python', 'sketch', 'drawing', 'animation',
         'code hub', 'pencil sketch', 'painting',
