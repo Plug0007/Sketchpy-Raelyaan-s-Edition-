@@ -67,22 +67,61 @@ obj = canvas.trace_from_image(r"path_to_image.jpg")
 # Draw the sketch
 obj.draw()
 ```
-Drawing From SVG file
+##🔗🖇️Drawing From SVG file
 You can sketch image uinsg the class color_sketch_from_svg, which takes the inpu in svg formate and then sketches it. Example Code:
 ```bash
+from sketchpy import canvas
 
-    from sketchpy import canvas
-    if __name__ == "__main__":
-        obj = canvas.color_sketch_from_svg("Image Path")
-        obj.draw()
+if __name__ == "__main__":
+    obj = canvas.color_sketch_from_svg("Image Path")
+    obj.draw()
+
 
 ```
 
-This will open a turtle graphics window and trace the image line by line.
+##🔗Converting Image to SVG formate
+Sketchpy requires specific type of SVG file formate to work properly, hence this version includes a standalone svg converter function with it use the follow code to convert you images to svg files
+```
+bash
+    from sketchpy import canvas
+    canvas.get_svg(IMG_PATH)
+```
 
+It takes the image from the IMG_PATH and converts it into an svg file
+But to access this SVG converter you have to complete a shorturl, don't worry you need to do this only once a day
+Use brave browser to complete it with ih 20 sec.
 ---
+##Sketching form .npy file
+Insted of waiting for the svg file to load, you can saved .npy file and use that for future use, use the following code to draw your image from saved data file
+```
+bash
 
-## Credits and Thanks
+from sketchpy import canvas
+obj = canvas.color_sketch_from_svg(None)
+obj.draw(file = 'data.npy')
+```
+###Library Example
+Open your code editor and write the example Python code snippets given below. Run your code and see the magic by yourself.
+
+##Drawing Robert Downey Jr. Using Python
+```
+bash
+
+from sketchpy import library as lib
+obj = lib.rdj()
+obj.draw()
+```
+##Drawing Tom Holland Using Python
+```
+bash
+
+from sketchpy import library
+myObject = library.tom_holland()
+myObject.draw()
+```
+
+
+### Credits and Thanks
 
 - **Original Author:** Mr Mystery (sriramanand23@gmail.com)  
   Many thanks to Mr Mystery for creating the initial Sketchpy library and sharing it under the MIT License.
