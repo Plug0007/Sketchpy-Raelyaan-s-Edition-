@@ -15,6 +15,7 @@
    - [Sketching from a .npy File](#sketching-from-a-npy-file)
    - [ASCII Art from an Image](#ASCII_ART)  
    - [Library Examples](#library-examples)
+
 4.[Version](#version)
    - [version 0.3.3](#version_0.3.3)
 5. [Uninstallation](#uninstallation)  
