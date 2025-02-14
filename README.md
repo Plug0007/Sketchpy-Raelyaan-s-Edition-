@@ -102,6 +102,30 @@ obj.draw(file='data.npy')
 
 **Sketch famous personalities directly using pre-built library functions:**
 
+**Drawing Dr.APJ Abdul Kalam:**
+```python
+from sketchpy import library
+obj = library.apj()
+# Draw the sketch
+obj.draw()
+```
+### OUTPUT
+<div align = "center">
+   <img src = "https://user-images.githubusercontent.com/80098044/154792552-59c53805-35b9-46e0-be37-2c5dae0a87d1.gif">
+</div>
+
+**Drawing `Indian Flag`:**
+```python
+from sketchpy import library
+obj = library.flag()
+# Draw the sketch
+obj.draw()
+```
+### OUTPUT
+<div align = "center">
+   <img src = "https://user-images.githubusercontent.com/80098044/154792552-59c53805-35b9-46e0-be37-2c5dae0a87d1.gif">
+</div>
+
 **Drawing Robert Downey Jr.:**
 ```python
 from sketchpy import library as lib
