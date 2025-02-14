@@ -134,7 +134,7 @@ sketch.draw_color_ascii_turtle()
 ```
 ### OUTPUT
 <div align = "center">
-   <img src = "https://github.com/Plug0007/Sketchpy-Raelyaan-s-Edition-/blob/main/images/gif/apjup4569.gif">
+   <img src = "https://github.com/Plug0007/Sketchpy-Raelyaan-s-Edition-/blob/main/images/gif/ascup4571.gif">
 </div>
 
 
