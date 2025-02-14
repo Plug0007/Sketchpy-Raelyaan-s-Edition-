@@ -111,7 +111,7 @@ obj.draw()
 ```
 ### OUTPUT
 <div align = "center">
-   <img src = "https://user-images.githubusercontent.com/80098044/154792552-59c53805-35b9-46e0-be37-2c5dae0a87d1.gif">
+   <img src = "https://github.com/Plug0007/Sketchpy-Raelyaan-s-Edition-/blob/main/images/gif/apjup4569.gif">
 </div>
 
 **Drawing `Indian Flag`:**
@@ -123,7 +123,7 @@ obj.draw()
 ```
 ### OUTPUT
 <div align = "center">
-   <img src = "https://user-images.githubusercontent.com/80098044/154792552-59c53805-35b9-46e0-be37-2c5dae0a87d1.gif">
+    <img src = "https://github.com/Plug0007/Sketchpy-Raelyaan-s-Edition-/blob/main/images/gif/indup4570.gif">
 </div>
 
 **Drawing Robert Downey Jr.:**
