@@ -1,30 +1,30 @@
-# Sketchpy-Raelyaan-s-Edition-
+# Sketchpy (Raelyaan’s Edition)
 
-## Sketchpy (Raelyaan’s Edition)
-
-- **Author (Original):** Mr Mystery (sriramanand23@gmail.com)  
-- **Author (Custom Edition):** Raelyaan  
-- **Maintaining Author:** Aadil Asif Badhra (aadilbadhra@gmail.com)
-
-Sketchpy (Raelyaan’s Edition) is a customized Python library for creating sketches and drawings programmatically. It is based on the original Sketchpy project by Mr Mystery, who has graciously licensed the code under the MIT License. This edition includes additional optimizations and personal touches contributed by Raelyaan.
+**Sketchpy (Raelyaan’s Edition)** is a customized Python library for creating sketches and drawings programmatically. Built upon the original Sketchpy project by Mr Mystery, this edition includes additional optimizations and personal enhancements contributed by Raelyaan. It leverages Python’s built-in `turtle` module to convert images into engaging line art and sketches.
 
 ---
 
-### TABLE OF CONTENTS
+## Table of Contents
 
 1. [Introduction](#introduction)  
 2. [Installation](#installation)  
    - [Git Clone Installation](#git-clone-installation)  
    - [PyPI Installation (Hypothetical)](#pypi-installation-hypothetical)  
 3. [Usage](#usage)  
-4. [Credits and Thanks](#credits-and-thanks)  
-5. [License (MIT)](#license-mit)
+   - [Tracing from an Image](#tracing-from-an-image)  
+   - [Drawing from an SVG File](#drawing-from-an-svg-file)  
+   - [Converting an Image to SVG Format](#converting-an-image-to-svg-format)  
+   - [Sketching from a .npy File](#sketching-from-a-npy-file)  
+   - [Library Examples](#library-examples)  
+4. [Uninstallation](#uninstallation)  
+5. [Credits and Thanks](#credits-and-thanks)  
+6. [License (MIT)](#license-mit)
 
 ---
 
 ## Introduction
 
-Sketchpy (Raelyaan’s Edition) allows users to convert images into line art or silhouettes using Python’s built-in `turtle` module. The goal is to simplify programmatic drawing tasks and provide a fun, interactive way to visualize images as sketches.
+Sketchpy (Raelyaan’s Edition) simplifies programmatic drawing by converting images into sketches. Whether you’re tracing from an image, converting images to SVG for further manipulation, or using pre-saved sketch data, this library provides an interactive and fun way to create art with code.
 
 ---
 
@@ -32,113 +32,116 @@ Sketchpy (Raelyaan’s Edition) allows users to convert images into line art or 
 
 ### Git Clone Installation
 
-```bash
-# 1. Clone the repository
-git clone https://github.com/Plug0007/Sketchpy-Raelyaan-s-Edition-.git
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/Plug0007/Sketchpy-Raelyaan-s-Edition-.git
+Change to the Project Directory:
 
-# 2. Change directory to the cloned folder
+
 cd Sketchpy-Raelyaan-s-Edition-
+Install the Package:
 
-# 3. Install the package
+
 pip install .
-```
+PyPI Installation (Hypothetical)
+If available on PyPI, you can install via:
 
 
-
-### PyPI Installation (Hypothetical)
-
-```bash
 pip install sketchpy
-```
-*
+Usage
+Tracing from an Image
+Convert an image into a sketch using:
 
----
-
-## Usage
-
-A quick example:
-
-```python
+python
+Copy
+Edit
 from sketchpy import canvas
 
-# Trace from an image
+# Trace sketch from an image
 obj = canvas.trace_from_image(r"path_to_image.jpg")
-
-# Draw the sketch
 obj.draw()
-```
-##🔗🖇️Drawing From SVG file
-You can sketch image uinsg the class color_sketch_from_svg, which takes the inpu in svg formate and then sketches it. Example Code:
-```bash
+Drawing from an SVG File
+Sketch directly from an SVG file (ensure your SVG meets the required format):
+
+python
+
 from sketchpy import canvas
 
 if __name__ == "__main__":
-    obj = canvas.color_sketch_from_svg("Image Path")
+    obj = canvas.color_sketch_from_svg(r"path_to_image.svg")
     obj.draw()
+Converting an Image to SVG Format
+Convert your image to a compatible SVG format using the built-in converter.
+Note: You may need to complete a one-time verification in Brave browser (approx. 20 seconds).
 
-
-```
-
-##🔗Converting Image to SVG formate
-Sketchpy requires specific type of SVG file formate to work properly, hence this version includes a standalone svg converter function with it use the follow code to convert you images to svg files
-```
-bash
-    from sketchpy import canvas
-    canvas.get_svg(IMG_PATH)
-```
-
-It takes the image from the IMG_PATH and converts it into an svg file
-But to access this SVG converter you have to complete a shorturl, don't worry you need to do this only once a day
-Use brave browser to complete it with ih 20 sec.
----
-##Sketching form .npy file
-Insted of waiting for the svg file to load, you can saved .npy file and use that for future use, use the following code to draw your image from saved data file
-```
-bash
+python
 
 from sketchpy import canvas
-obj = canvas.color_sketch_from_svg(None)
-obj.draw(file = 'data.npy')
-```
-###Library Example
-Open your code editor and write the example Python code snippets given below. Run your code and see the magic by yourself.
 
-##Drawing Robert Downey Jr. Using Python
-```
-bash
+# Convert image to SVG format
+canvas.get_svg(r"path_to_image.jpg")
+Sketching from a .npy File
+After generating an SVG, save the sketch data as a .npy file for faster subsequent loading:
+
+python
+Copy
+Edit
+from sketchpy import canvas
+
+# Draw sketch from saved .npy data file
+obj = canvas.color_sketch_from_svg(None)
+obj.draw(file='data.npy')
+Library Examples
+Sketch famous personalities directly using pre-built library functions:
+
+Drawing Robert Downey Jr.:
+
+python
 
 from sketchpy import library as lib
+
 obj = lib.rdj()
 obj.draw()
-```
-##Drawing Tom Holland Using Python
-```
-bash
+Drawing Tom Holland:
 
+python
+Copy
+Edit
 from sketchpy import library
+
 myObject = library.tom_holland()
 myObject.draw()
-```
+Uninstallation
+To remove Sketchpy (Raelyaan’s Edition) from your system, follow these steps:
+
+Uninstall via pip:
+
+pip uninstall sketchpy
+Remove the Cloned Directory (if installed via Git Clone):
+
+On Windows: Open Command Prompt and run:
 
 
-### Credits and Thanks
+rmdir /S /Q "C:\path\to\Sketchpy-Raelyaan-s-Edition-"
+On macOS/Linux: Open Terminal and run:
 
-- **Original Author:** Mr Mystery (sriramanand23@gmail.com)  
-  Many thanks to Mr Mystery for creating the initial Sketchpy library and sharing it under the MIT License.
 
-- **Custom Edition:** Raelyaan  
-  Responsible for enhancements, performance tweaks, and additional features in this edition.
 
-- **Maintaining Author:** Aadil Asif Badhra (aadilbadhra@gmail.com)  
-  Overseeing ongoing updates, documentation, and support for Sketchpy (Raelyaan’s Edition).
+rm -rf /path/to/Sketchpy-Raelyaan-s-Edition-
+These steps ensure that both the package and its source directory are removed from your system.
 
----
+Credits and Thanks
+Original Author: Mr Mystery (sriramanand23@gmail.com)
+Many thanks to Mr Mystery for creating the initial Sketchpy library under the MIT License.
 
-## License (MIT)
+Custom Edition: Raelyaan
+Responsible for enhancements, optimizations, and additional features in this edition.
 
-Below is the full text of the original MIT License, which applies to this project:
+Maintaining Author: Aadil Asif Badhra (aadilbadhra@gmail.com)
+Overseeing ongoing updates, documentation, and community support.
 
-```
+License (MIT)
+
 MIT License
 
 Copyright (c) 2022 Sriram
@@ -160,4 +163,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-```
