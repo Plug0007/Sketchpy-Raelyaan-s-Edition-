@@ -63,7 +63,8 @@ setup(
         'requests',
         'geocoder',
         'geopy',
-        'torch'
+        'torch',
+        'numpy'
     ],
     keywords=[
         'python', 'sketch', 'drawing', 'animation',
