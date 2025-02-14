@@ -37,16 +37,22 @@ Sketchpy (Raelyaan’s Edition) simplifies programmatic drawing by converting im
    git clone https://github.com/Plug0007/Sketchpy-Raelyaan-s-Edition-.git
 Change to the Project Directory:
 
-
+bash
+Copy
+Edit
 cd Sketchpy-Raelyaan-s-Edition-
 Install the Package:
 
-
+bash
+Copy
+Edit
 pip install .
 PyPI Installation (Hypothetical)
 If available on PyPI, you can install via:
 
-
+bash
+Copy
+Edit
 pip install sketchpy
 Usage
 Tracing from an Image
@@ -64,7 +70,8 @@ Drawing from an SVG File
 Sketch directly from an SVG file (ensure your SVG meets the required format):
 
 python
-
+Copy
+Edit
 from sketchpy import canvas
 
 if __name__ == "__main__":
@@ -75,7 +82,8 @@ Convert your image to a compatible SVG format using the built-in converter.
 Note: You may need to complete a one-time verification in Brave browser (approx. 20 seconds).
 
 python
-
+Copy
+Edit
 from sketchpy import canvas
 
 # Convert image to SVG format
@@ -97,7 +105,8 @@ Sketch famous personalities directly using pre-built library functions:
 Drawing Robert Downey Jr.:
 
 python
-
+Copy
+Edit
 from sketchpy import library as lib
 
 obj = lib.rdj()
@@ -116,17 +125,23 @@ To remove Sketchpy (Raelyaan’s Edition) from your system, follow these steps:
 
 Uninstall via pip:
 
+bash
+Copy
+Edit
 pip uninstall sketchpy
 Remove the Cloned Directory (if installed via Git Clone):
 
 On Windows: Open Command Prompt and run:
 
-
+bash
+Copy
+Edit
 rmdir /S /Q "C:\path\to\Sketchpy-Raelyaan-s-Edition-"
 On macOS/Linux: Open Terminal and run:
 
-
-
+bash
+Copy
+Edit
 rm -rf /path/to/Sketchpy-Raelyaan-s-Edition-
 These steps ensure that both the package and its source directory are removed from your system.
 
@@ -141,7 +156,9 @@ Maintaining Author: Aadil Asif Badhra (aadilbadhra@gmail.com)
 Overseeing ongoing updates, documentation, and community support.
 
 License (MIT)
-
+sql
+Copy
+Edit
 MIT License
 
 Copyright (c) 2022 Sriram
