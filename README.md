@@ -95,6 +95,12 @@ from sketchpy import library as lib
 obj = lib.rdj()
 obj.draw()
 ```
+
+### OUTPUT
+<div align = "center">
+   <img src = "https://user-images.githubusercontent.com/80098044/154792552-59c53805-35b9-46e0-be37-2c5dae0a87d1.gif">
+</div>
+
 **Drawing Tom Holland:**
 ```python
 from sketchpy import library
@@ -102,6 +108,11 @@ from sketchpy import library
 myObject = library.tom_holland()
 myObject.draw()
 ```
+
+### OUTPUT
+<div align = "center">
+   <img src = "https://cdn-0.pythonistaplanet.com/wp-content/uploads/2022/05/image-5.png?ezimgfmt=ng:webp/ngcb19">
+</div>
 
 # Uninstallation
 **To remove Sketchpy (Raelyaan’s Edition) from your system, follow these steps:**
