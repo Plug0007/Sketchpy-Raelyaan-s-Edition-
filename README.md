@@ -71,7 +71,7 @@ if __name__ == "__main__":
 
 ```
 
-## Sketching from a .npy File
+## Sketching from a `.npy` File
 
 **After generating an SVG, save the sketch data as a .npy file for faster subsequent loading:**
 ```python
