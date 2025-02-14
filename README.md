@@ -113,7 +113,7 @@ pip uninstall sketchpy
 2. ## Remove the Cloned Directory (if installed via Git Clone):
    **On Windows: Open Command Prompt and run:**
    ```bash
-   rmdir /S /Q "C:\path\to\Sketchpy-Raelyaan-s-Edition-"
+   rmdir /S /Q "Sketchpy-Raelyaan-s-Edition-"
    ```
    **On macOS/Linux: Open Terminal and run:**
    ```bash
