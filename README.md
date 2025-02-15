@@ -281,6 +281,7 @@ Overseeing ongoing updates, documentation, and community support.**
 MIT License
 
 Copyright (c) 2022 Sriram
+Copyright (c) 2025 Plug0007
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
