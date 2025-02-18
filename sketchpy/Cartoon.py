@@ -22,14 +22,12 @@ class Hendry:
 
         self.screen = turtle.Screen()
         self.screen.setup(width=800, height=600)
-        # Update the screen after every move (change this value if you need fewer updates)
         self.screen.tracer(1)
 
         self.pen = turtle.Turtle()
         self.pen.shape("arrow")
-        # Lower the speed to slow down the drawing (adjust as needed)
-        self.pen.speed(2)
-        self.pen.width(2)
+        self.pen.speed(4)  # Increased speed by 50% compared to speed(1)
+        self.pen.width(4)
 
         self.load_svg()
 
@@ -58,16 +56,17 @@ class Hendry:
         self.scale = min(sw / self.vb_width, sh / self.vb_height)
 
     def transform(self, x, y):
-        """Transforms SVG coordinates to turtle screen coordinates."""
+        """
+        Transforms SVG coordinates to turtle screen coordinates.
+        """
         new_x = (x - self.vb_x) * self.scale - (self.vb_width * self.scale) / 2 + self.x_offset
         new_y = (self.vb_height * self.scale) / 2 - (y - self.vb_y) * self.scale + self.y_offset
         return new_x, new_y
 
     def draw_path(self, d, color="#000000", thickness=2):
-        """Draws an SVG path with turtle.
-        
-        In this version, the pen is never lifted so that every move is drawn,
-        including the movement from the end of one segment to the start of the next.
+        """
+        Draws an SVG path with turtle without drawing an extra connecting line
+        between segments.
         """
         try:
             path = parse_path(d)
@@ -79,6 +78,13 @@ class Hendry:
         self.pen.width(thickness)
 
         for segment in path:
+            # Lift the pen and move to the start of the segment to avoid connecting lines
+            pt_start = segment.point(0)
+            start_x, start_y = self.transform(pt_start.real, pt_start.imag)
+            self.pen.penup()
+            self.pen.goto(start_x, start_y)
+            self.pen.pendown()
+
             seg_length = segment.length(error=1e-2)
             steps = max(int(seg_length / 2), 10)
             for i in range(steps + 1):
@@ -92,7 +98,7 @@ class Hendry:
             print("SVG file not loaded.")
             return
 
-        # Iterate through all SVG path elements in the file.
+        # Iterate through all SVG path elements
         for path_elem in self.root.findall('.//{http://www.w3.org/2000/svg}path'):
             d = path_elem.get('d')
             fill = path_elem.get('fill', "#000000")
@@ -102,5 +108,5 @@ class Hendry:
 
 # Example usage when running this module directly.
 if __name__ == "__main__":
-    drawer = Hendry()  # No need to provide an SVG file if the default is acceptable
+    drawer = Hendry()  # Uses the default SVG file
     drawer.draw()
