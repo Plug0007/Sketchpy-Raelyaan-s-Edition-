@@ -22,11 +22,13 @@ class Hendry:
 
         self.screen = turtle.Screen()
         self.screen.setup(width=800, height=600)
+        # Update the screen after every move (change this value if you need fewer updates)
         self.screen.tracer(1)
 
         self.pen = turtle.Turtle()
         self.pen.shape("arrow")
-        self.pen.speed(3)
+        # Lower the speed to slow down the drawing (adjust as needed)
+        self.pen.speed(2)
         self.pen.width(2)
 
         self.load_svg()
@@ -56,12 +58,17 @@ class Hendry:
         self.scale = min(sw / self.vb_width, sh / self.vb_height)
 
     def transform(self, x, y):
+        """Transforms SVG coordinates to turtle screen coordinates."""
         new_x = (x - self.vb_x) * self.scale - (self.vb_width * self.scale) / 2 + self.x_offset
         new_y = (self.vb_height * self.scale) / 2 - (y - self.vb_y) * self.scale + self.y_offset
         return new_x, new_y
 
     def draw_path(self, d, color="#000000", thickness=2):
-        """Draws an SVG path with turtle."""
+        """Draws an SVG path with turtle.
+        
+        In this version, the pen is never lifted so that every move is drawn,
+        including the movement from the end of one segment to the start of the next.
+        """
         try:
             path = parse_path(d)
         except Exception as e:
@@ -70,7 +77,6 @@ class Hendry:
 
         self.pen.color(color)
         self.pen.width(thickness)
-        first_point = True
 
         for segment in path:
             seg_length = segment.length(error=1e-2)
@@ -78,13 +84,7 @@ class Hendry:
             for i in range(steps + 1):
                 pt = segment.point(i / steps)
                 new_x, new_y = self.transform(pt.real, pt.imag)
-                if first_point:
-                    self.pen.penup()
-                    self.pen.goto(new_x, new_y)
-                    self.pen.pendown()
-                    first_point = False
-                else:
-                    self.pen.goto(new_x, new_y)
+                self.pen.goto(new_x, new_y)
 
     def draw(self):
         """Draws the default or user-provided SVG."""
@@ -92,7 +92,7 @@ class Hendry:
             print("SVG file not loaded.")
             return
 
-        namespace = {'svg': 'http://www.w3.org/2000/svg'}
+        # Iterate through all SVG path elements in the file.
         for path_elem in self.root.findall('.//{http://www.w3.org/2000/svg}path'):
             d = path_elem.get('d')
             fill = path_elem.get('fill', "#000000")
@@ -102,5 +102,5 @@ class Hendry:
 
 # Example usage when running this module directly.
 if __name__ == "__main__":
-    drawer = Hendry()  # No need to provide an SVG file
+    drawer = Hendry()  # No need to provide an SVG file if the default is acceptable
     drawer.draw()
