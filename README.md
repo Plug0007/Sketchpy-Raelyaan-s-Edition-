@@ -70,11 +70,15 @@ obj = canvas.trace_from_image(r"path_to_image.jpg")
 obj.draw()
 ```
 
-### OUTPUT
+### OUTPUT 1:
 <div align = "center">
    <img src = "https://github.com/Plug0007/Sketchpy-Raelyaan-s-Edition-/blob/main/images/gif/3.gif">
 </div>
 
+### OUTPUT 2:
+<div align = "center">
+   <img src = "https://github.com/Plug0007/Sketchpy-Raelyaan-s-Edition-/blob/main/images/gif/hendry779.gif">
+</div>
 
 
 
@@ -142,6 +146,7 @@ sketch.draw_color_ascii_turtle()
 ## Library Examples
 
 **Sketch famous Cartoon directly using pre-built Cartoon! library :**
+
 experience your favorite cartoons drawn in vibrant color! This feature, sourced from our dedicated cartoon library, will continue to be enhanced with each new version.
 
 **Drawing Hendry:**
@@ -155,7 +160,7 @@ drawer.draw()
 ```
 ### OUTPUT
 <div align = "center">
-   <img src = "https://github.com/Plug0007/Sketchpy-Raelyaan-s-Edition-/blob/main/images/gif/apjup4569.gif">
+   <img src = "https://github.com/Plug0007/Sketchpy-Raelyaan-s-Edition-/blob/main/images/gif/colorhendry778.gif">
 </div>
 
 
