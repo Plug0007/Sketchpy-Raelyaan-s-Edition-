@@ -7,32 +7,28 @@ class Hendry:
     def __init__(self, svg_file=None, x_offset=0, y_offset=0):
         """
         Initializes the turtle screen and loads the default SVG if no file is provided.
-
-        :param svg_file: Optional path to an SVG file. If None, uses the default.
-        :param x_offset: Optional additional x offset.
-        :param y_offset: Optional additional y offset.
         """
-        # If no file is provided, use the default one inside the package
+        # Use the default SVG file if none is provided.
         if svg_file is None:
             svg_file = os.path.join(os.path.dirname(__file__), "assets", "my_image.svg")
-
         self.svg_file = svg_file
         self.x_offset = x_offset
         self.y_offset = y_offset
 
         self.screen = turtle.Screen()
         self.screen.setup(width=800, height=600)
-        self.screen.tracer(1)
+        # Update the screen every 10 turtle moves for a fast yet animated drawing.
+        self.screen.tracer(10)
 
         self.pen = turtle.Turtle()
-        self.pen.shape("arrow")
-        self.pen.speed(2)  # Increased speed by 50% compared to speed(1)
+        self.pen.hideturtle()  # Hide the turtle for a cleaner drawing
+        self.pen.speed(10)     # Maximum animated speed (fast but not instant)
         self.pen.width(2)
 
         self.load_svg()
 
     def load_svg(self):
-        """Loads the SVG file and prepares for drawing."""
+        """Loads the SVG file and sets up the viewBox and scaling."""
         try:
             tree = ET.parse(self.svg_file)
             self.root = tree.getroot()
@@ -63,10 +59,13 @@ class Hendry:
         new_y = (self.vb_height * self.scale) / 2 - (y - self.vb_y) * self.scale + self.y_offset
         return new_x, new_y
 
-    def draw_path(self, d, color="#000000", thickness=2):
+    def draw_path(self, d, fill_color="#000000", thickness=2):
         """
-        Draws an SVG path with turtle without drawing an extra connecting line
-        between segments.
+        Draws an SVG path using turtle.
+        
+        - Lifts the pen before moving to the start point to avoid connecting lines.
+        - Uses fewer interpolation steps (for faster drawing) but still animates.
+        - If a fill color is specified (and not "none"), fills the drawn shape.
         """
         try:
             path = parse_path(d)
@@ -74,39 +73,53 @@ class Hendry:
             print("Error parsing path:", e)
             return
 
-        self.pen.color(color)
+        if not path:
+            return
+
+        # Move to the starting point of the first segment.
+        pt_start = path[0].point(0)
+        start_x, start_y = self.transform(pt_start.real, pt_start.imag)
+        self.pen.penup()
+        self.pen.goto(start_x, start_y)
+        self.pen.pendown()
+
         self.pen.width(thickness)
+        self.pen.pencolor(fill_color)
 
+        if fill_color.lower() != "none":
+            self.pen.fillcolor(fill_color)
+            self.pen.begin_fill()
+
+        # Draw each segment with fewer steps for speed.
         for segment in path:
-            # Lift the pen and move to the start of the segment to avoid connecting lines
-            pt_start = segment.point(0)
-            start_x, start_y = self.transform(pt_start.real, pt_start.imag)
-            self.pen.penup()
-            self.pen.goto(start_x, start_y)
-            self.pen.pendown()
-
             seg_length = segment.length(error=1e-2)
-            steps = max(int(seg_length / 2), 10)
-            for i in range(steps + 1):
+            steps = max(int(seg_length / 10), 5)  # Reduced steps for faster drawing
+            for i in range(1, steps + 1):
                 pt = segment.point(i / steps)
                 new_x, new_y = self.transform(pt.real, pt.imag)
                 self.pen.goto(new_x, new_y)
 
+        # Ensure the shape is closed
+        self.pen.goto(start_x, start_y)
+        if fill_color.lower() != "none":
+            self.pen.end_fill()
+
     def draw(self):
-        """Draws the default or user-provided SVG."""
+        """Draws all SVG path elements from the file."""
         if self.root is None:
             print("SVG file not loaded.")
             return
 
-        # Iterate through all SVG path elements
         for path_elem in self.root.findall('.//{http://www.w3.org/2000/svg}path'):
             d = path_elem.get('d')
+            # Use the SVG fill color if provided; otherwise, default to black.
             fill = path_elem.get('fill', "#000000")
-            self.draw_path(d, color=fill, thickness=2)
+            self.draw_path(d, fill_color=fill, thickness=2)
 
+        self.screen.update()  # Final screen update
         turtle.done()
 
-# Example usage when running this module directly.
+# Example usage:
 if __name__ == "__main__":
     drawer = Hendry()  # Uses the default SVG file
     drawer.draw()
