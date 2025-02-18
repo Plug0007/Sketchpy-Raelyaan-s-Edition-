@@ -26,8 +26,8 @@ class Hendry:
 
         self.pen = turtle.Turtle()
         self.pen.shape("arrow")
-        self.pen.speed(1)  # Slower speed for smoother animation
-        self.pen.width(2)
+        self.pen.speed(10)  # Slower speed for smoother animation
+        self.pen.width(10)
 
         self.load_svg()
 
