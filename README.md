@@ -139,10 +139,26 @@ sketch.draw_color_ascii_turtle()
 </div>
 
 
-
-
-
 ## Library Examples
+
+**Sketch famous Cartoon directly using pre-built Cartoon! library :**
+experience your favorite cartoons drawn in vibrant color! This feature, sourced from our dedicated cartoon library, will continue to be enhanced with each new version.
+
+**Drawing Hendry:**
+```python
+from sketchpy import Cartoon
+
+drawer = Cartoon.Hendry()  
+
+# Draw the sketch
+drawer.draw()
+```
+### OUTPUT
+<div align = "center">
+   <img src = "https://github.com/Plug0007/Sketchpy-Raelyaan-s-Edition-/blob/main/images/gif/apjup4569.gif">
+</div>
+
+
 
 **Sketch famous personalities directly using pre-built library functions:**
 
@@ -221,11 +237,11 @@ pip uninstall sketchpy
 
 # version
 
-### version_0.3.3
+### version_0.3.4
 
 # Cartoon Library
 
-**Version: 0.3.3**  
+**Version: 0.3.4**  
 *Creator: Raelyaan*
 
 **Overview:**
