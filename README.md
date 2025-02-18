@@ -18,6 +18,7 @@
 
 4.[Version](#version)
    - [version 0.3.3](#version_0.3.3)
+   - [version 0.3.4](#version_0.3.4)
 5. [Uninstallation](#uninstallation)  
 6. [Credits and Thanks](#credits-and-thanks)  
 7. [License (MIT)](#license-mit)
@@ -222,6 +223,31 @@ pip uninstall sketchpy
 
 ### version_0.3.3
 
+# Cartoon Library
+
+**Version: 0.3.3**  
+*Creator: Raelyaan*
+
+**Overview:**
+Cartoon Library has been updated to version 0.3.4! Building on the improvements from v0.3.3, this release introduces a brand-new feature that brings your favorite cartoon-inspired color themes right into your ASCII art and sketches. Now, not only can you convert images into colored ASCII art and generate sketches using Turtle graphics and Sketchpy, but you can also easily apply custom, famous cartoon color palettes to elevate your artwork.
+
+**Key Enhancements:**
+
+Custom Cartoon Color Themes:
+Apply pre-defined, vibrant color schemes inspired by famous cartoons with a single function call. Simply use the add() method to integrate these fun, eye-catching palettes into your art!
+
+Sketchpy Integration:
+Generate detailed sketches of your images effortlessly using Sketchpy's draw() method.
+
+Enhanced Colored ASCII Art:
+Each ASCII character is rendered in a color sampled directly from the original image, providing a richer, more dynamic visual experience.
+
+Enhanced Clarity Controls:
+Fine-tune ascii_width and font_size to adjust the level of detail and clarity in your output.
+
+
+### version_0.3.3
+
 # MySketch Library
 
 **Version: 0.3.3**  
@@ -255,6 +281,8 @@ MySketch converts images into colored ASCII art and sketches using Turtle graphi
 
 - **Enhanced Clarity Controls:**  
   Adjust `ascii_width` and `font_size` to improve output quality.
+
+
 
 ## Acknowledgments
 
