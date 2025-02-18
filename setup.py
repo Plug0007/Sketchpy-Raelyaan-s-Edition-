@@ -5,7 +5,7 @@ import os
 
 
 
-VERSION = '0.3.3'
+VERSION = '0.3.4'
 DESCRIPTION = 'sketchpy'
 LONG_DESCRIPTION = """ 
 Sketchpy (Raelyaan’s Edition)
