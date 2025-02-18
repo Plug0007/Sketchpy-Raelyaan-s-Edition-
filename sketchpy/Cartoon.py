@@ -7,29 +7,32 @@ class Hendry:
     def __init__(self, svg_file=None, x_offset=0, y_offset=0):
         """
         Initializes the turtle screen and loads the default SVG if no file is provided.
-        The SVG is centered in the turtle window.
+
+        :param svg_file: Optional path to an SVG file. If None, uses the default.
+        :param x_offset: Optional additional x offset.
+        :param y_offset: Optional additional y offset.
         """
-        # Use the default SVG file if none is provided.
+        # If no file is provided, use the default one inside the package
         if svg_file is None:
             svg_file = os.path.join(os.path.dirname(__file__), "assets", "my_image.svg")
+
         self.svg_file = svg_file
         self.x_offset = x_offset
         self.y_offset = y_offset
 
         self.screen = turtle.Screen()
         self.screen.setup(width=800, height=600)
-        # Update the screen every 10 moves for fast, animated drawing.
-        self.screen.tracer(10)
+        self.screen.tracer(1)
 
         self.pen = turtle.Turtle()
-        self.pen.hideturtle()  # Hide the turtle cursor for a cleaner drawing
-        self.pen.speed(10)     # Fast animated speed (not instant)
+        self.pen.shape("arrow")
+        self.pen.speed(1)  # Slower speed for smoother animation
         self.pen.width(2)
 
         self.load_svg()
 
     def load_svg(self):
-        """Loads the SVG file and sets up the viewBox and scaling."""
+        """Loads the SVG file and prepares for drawing."""
         try:
             tree = ET.parse(self.svg_file)
             self.root = tree.getroot()
@@ -43,35 +46,27 @@ class Hendry:
             parts = viewBox.split()
             self.vb_x, self.vb_y, self.vb_width, self.vb_height = map(float, parts)
         else:
-            # If no viewBox is provided, use the width and height attributes
             self.vb_x = 0
             self.vb_y = 0
             self.vb_width = float(self.root.get("width", "800"))
             self.vb_height = float(self.root.get("height", "600"))
 
-        # Calculate a scale factor so the SVG fits inside the turtle window.
         sw = self.screen.window_width()
         sh = self.screen.window_height()
         self.scale = min(sw / self.vb_width, sh / self.vb_height)
 
     def transform(self, x, y):
         """
-        Transforms SVG coordinates to turtle screen coordinates,
-        centering the SVG in the turtle window.
+        Transforms SVG coordinates to turtle screen coordinates.
         """
-        # Calculate the center of the SVG viewBox.
-        center_x = self.vb_x + self.vb_width / 2
-        center_y = self.vb_y + self.vb_height / 2
-
-        # Adjust coordinates so that the viewBox's center aligns with (0,0).
-        new_x = (x - center_x) * self.scale + self.x_offset
-        new_y = (center_y - y) * self.scale + self.y_offset
+        new_x = (x - self.vb_x) * self.scale - (self.vb_width * self.scale) / 2 + self.x_offset
+        new_y = (self.vb_height * self.scale) / 2 - (y - self.vb_y) * self.scale + self.y_offset
         return new_x, new_y
 
-    def draw_path(self, d, fill_color="#000000", thickness=2):
+    def draw_path(self, d, color="#000000", thickness=2):
         """
-        Draws an SVG path using turtle.
-        Lifts the pen to avoid drawing unwanted connecting lines between segments.
+        Draws an SVG path with turtle without drawing an extra connecting line
+        between segments.
         """
         try:
             path = parse_path(d)
@@ -79,52 +74,39 @@ class Hendry:
             print("Error parsing path:", e)
             return
 
-        if not path:
-            return
-
-        # Move to the starting point of the first segment.
-        pt_start = path[0].point(0)
-        start_x, start_y = self.transform(pt_start.real, pt_start.imag)
-        self.pen.penup()
-        self.pen.goto(start_x, start_y)
-        self.pen.pendown()
-
+        self.pen.color(color)
         self.pen.width(thickness)
-        self.pen.pencolor(fill_color)
 
-        if fill_color.lower() != "none":
-            self.pen.fillcolor(fill_color)
-            self.pen.begin_fill()
-
-        # Draw each segment using fewer interpolation steps for speed.
         for segment in path:
+            # Lift the pen and move to the start of the segment to avoid connecting lines
+            pt_start = segment.point(0)
+            start_x, start_y = self.transform(pt_start.real, pt_start.imag)
+            self.pen.penup()
+            self.pen.goto(start_x, start_y)
+            self.pen.pendown()
+
             seg_length = segment.length(error=1e-2)
-            steps = max(int(seg_length / 10), 5)
-            for i in range(1, steps + 1):
+            steps = max(int(seg_length / 2), 10)
+            for i in range(steps + 1):
                 pt = segment.point(i / steps)
                 new_x, new_y = self.transform(pt.real, pt.imag)
                 self.pen.goto(new_x, new_y)
 
-        # Close the shape by returning to the starting point.
-        self.pen.goto(start_x, start_y)
-        if fill_color.lower() != "none":
-            self.pen.end_fill()
-
     def draw(self):
-        """Draws all SVG path elements from the file."""
+        """Draws the default or user-provided SVG."""
         if self.root is None:
             print("SVG file not loaded.")
             return
 
+        # Iterate through all SVG path elements
         for path_elem in self.root.findall('.//{http://www.w3.org/2000/svg}path'):
             d = path_elem.get('d')
             fill = path_elem.get('fill', "#000000")
-            self.draw_path(d, fill_color=fill, thickness=2)
+            self.draw_path(d, color=fill, thickness=2)
 
-        self.screen.update()  # Final update to display the drawing
         turtle.done()
 
-# Example usage:
+# Example usage when running this module directly.
 if __name__ == "__main__":
-    drawer = Hendry()  # Uses the default SVG file and centers it in the window
+    drawer = Hendry()  # Uses the default SVG file
     drawer.draw()
