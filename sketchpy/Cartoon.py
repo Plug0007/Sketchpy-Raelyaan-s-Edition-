@@ -22,7 +22,7 @@ class Hendry:
 
         self.screen = turtle.Screen()
         self.screen.setup(width=800, height=600)
-        self.screen.tracer(1)
+        self.screen.tracer(6)
 
         self.pen = turtle.Turtle()
         self.pen.shape("arrow")
