@@ -51,7 +51,7 @@ setup(
     long_description_content_type="text/markdown",
     long_description=LONG_DESCRIPTION,
     packages=find_packages(),
-    package_data={"sketchpy": ["files/*", "assets/*.svg"]}
+    package_data={"sketchpy": ["files/*", "assets/*.svg"]},
     include_package_data=True,
     install_requires=[
         'opencv-python',
